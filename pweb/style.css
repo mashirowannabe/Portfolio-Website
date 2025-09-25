@@ -1,0 +1,269 @@
+/* --- Variabel Warna & Font --- */
+:root {
+    --bg-color: #020a14;
+    --primary-glow: #00e5ff;
+    --text-color: #cceeff;
+    --heading-color: #ffffff;
+    --card-bg: rgba(10, 25, 47, 0.85);
+    --border-color: rgba(0, 229, 255, 0.3);
+    --font-heading: 'Exo 2', sans-serif;
+    --font-body: 'Roboto Mono', monospace;
+}
+
+/* --- Reset & Gaya Dasar --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: linear-gradient(rgba(2, 10, 20, 0.7), rgba(2, 10, 20, 0.85)), url('Techno.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: var(--font-body);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+/* --- Navigasi Atas (Navbar) --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(5, 15, 30, 0.6);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    z-index: 100;
+}
+.nav-brand {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+.navbar ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    padding-bottom: 0.5rem;
+}
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    color: var(--heading-color);
+    text-shadow: 0 0 5px var(--primary-glow);
+    border-bottom: 2px solid var(--primary-glow);
+}
+
+/* --- Konten Utama & Scroll Snap --- */
+.content {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    padding-top: 74px;
+}
+.section {
+    height: calc(100vh - 74px);
+    padding: 2rem 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    width: 100%;
+}
+
+h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--heading-color);
+    text-align: center;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px var(--primary-glow);
+}
+
+/* --- Hero Section --- */
+#hero {
+    text-align: center;
+}
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    color: var(--heading-color);
+    text-shadow: 0 0 20px var(--primary-glow), 0 0 40px var(--primary-glow);
+}
+.hero-content p {
+    font-size: 1.5rem;
+    color: var(--primary-glow);
+    margin-top: 1rem;
+}
+/* Efek kursor berkedip untuk nama */
+#nama-hero::after {
+    content: '|';
+    margin-left: 8px;
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- About Section --- */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+    max-width: 1200px;
+}
+.about-photo {
+    flex: 0 0 300px;
+    height: 300px;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    /* INI SOLUSI UNTUK GAMBAR BURIK/BLUR */
+    image-rendering: -moz-crisp-edges; /* Firefox */
+    image-rendering: pixelated; /* Chrome, Edge, Opera */
+}
+.about-text {
+    flex: 1;
+    max-width: 600px;
+}
+.about-text h2 {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+.skills h3 {
+    margin-top: 2rem;
+    color: var(--heading-color);
+    font-family: var(--font-heading);
+}
+.skills ul {
+    list-style: none;
+    padding-top: 1rem;
+}
+.skills ul li {
+    padding: 0.25rem 0;
+}
+
+/* --- Projects Section --- */
+.projects-grid {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 500px;
+}
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px var(--border-color);
+}
+.project-image {
+    width: 100%;
+    height: 250px;
+    background-image: url('siskop login.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+.project-card h3 {
+    font-family: var(--font-heading);
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
+}
+.btn-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--primary-glow);
+    border: 1px solid var(--primary-glow);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+.btn-link:hover {
+    background-color: var(--primary-glow);
+    color: var(--bg-color);
+}
+
+/* --- Tombol Kontrol Musik --- */
+#tombol-musik {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    opacity: 0.5;
+}
+#tombol-musik:hover {
+    box-shadow: 0 0 15px var(--primary-glow);
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+}
+.ikon-musik {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 20px solid var(--primary-glow);
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+#tombol-musik.playing .ikon-musik {
+    border-style: double;
+    border-width: 0px 0px 0px 20px;
+    border-radius: 0;
+    width: 20px;
+    height: 24px;
+    margin-left: 0;
+}
+
