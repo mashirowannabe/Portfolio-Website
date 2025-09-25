@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-
-    // --- Menandai Navigasi Aktif saat Scroll ---
     const sections = document.querySelectorAll('.section');
     const navLinks = document.querySelectorAll('.navbar ul li a');
     const contentArea = document.querySelector('.content');
@@ -27,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- KONTROL MUSIK LATAR ---
     const audio = document.getElementById('musik-latar');
     const tombolMusik = document.getElementById('tombol-musik');
 
